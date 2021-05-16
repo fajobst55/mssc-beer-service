@@ -60,13 +60,20 @@ public class BeerController {
 
     }
 
-    @PostMapping
+    @GetMapping(produces = {"application/json"}, path="beerUpc/{upc}")
+    public ResponseEntity<BeerDto> getBeerByUpc(@PathVariable String upc) {
+
+        return new ResponseEntity<>(beerService.getByUpc(upc), HttpStatus.OK);
+
+    }
+
+    @PostMapping(path = "beer")
     public ResponseEntity saveNewBeer(@RequestBody @Validated BeerDto beerDto) {
 
         return new ResponseEntity<>(beerService.saveNewBeer(beerDto), HttpStatus.CREATED);
     }
 
-    @PutMapping("/{beerId}")
+    @PutMapping("beer/{beerId}")
     public ResponseEntity updateBeerById(@PathVariable UUID beerId, @Validated @RequestBody BeerDto beerDto) {
 
         return new ResponseEntity<>(beerService.updateBeer(beerId, beerDto), HttpStatus.NO_CONTENT);

@@ -13,6 +13,8 @@ public interface BeerService {
 
     BeerDto getById(UUID beerId, Boolean showInventoryOnHan);
 
+    BeerDto getByUpc(String upd);
+
     BeerDto saveNewBeer(BeerDto beerDto);
 
     BeerDto updateBeer(UUID beerId, BeerDto beerDto);

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-05-15T17:37:54-0500",
+    date = "2021-05-16T12:23:36-0500",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 11.0.9 (Oracle Corporation)"
 )
 @Component
@@ -34,6 +34,7 @@ public class BeerMapperImpl_ implements BeerMapper {
         if ( beer.getVersion() != null ) {
             beerDto.version( beer.getVersion().intValue() );
         }
+        beerDto.createdDate( dateMapper.asOffsetDateTime( beer.getCreatedDate() ) );
         beerDto.lastModifiedDate( dateMapper.asOffsetDateTime( beer.getLastModifiedDate() ) );
         beerDto.beerName( beer.getBeerName() );
         if ( beer.getBeerStyle() != null ) {
@@ -57,6 +58,7 @@ public class BeerMapperImpl_ implements BeerMapper {
         if ( beer.getVersion() != null ) {
             beerDto.version( beer.getVersion().intValue() );
         }
+        beerDto.createdDate( dateMapper.asOffsetDateTime( beer.getCreatedDate() ) );
         beerDto.lastModifiedDate( dateMapper.asOffsetDateTime( beer.getLastModifiedDate() ) );
         beerDto.beerName( beer.getBeerName() );
         if ( beer.getBeerStyle() != null ) {
@@ -80,6 +82,7 @@ public class BeerMapperImpl_ implements BeerMapper {
         if ( beerDto.getVersion() != null ) {
             beer.version( beerDto.getVersion().longValue() );
         }
+        beer.createdDate( dateMapper.asTimestamp( beerDto.getCreatedDate() ) );
         beer.lastModifiedDate( dateMapper.asTimestamp( beerDto.getLastModifiedDate() ) );
         beer.beerName( beerDto.getBeerName() );
         if ( beerDto.getBeerStyle() != null ) {
