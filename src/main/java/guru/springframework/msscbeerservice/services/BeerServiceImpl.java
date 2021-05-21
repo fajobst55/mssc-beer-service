@@ -91,7 +91,9 @@ public class BeerServiceImpl implements BeerService {
     public BeerDto getByUpc(String upc) {
 
         System.out.println("BeerByUpc : I am called");
-        return beerMapper.beerToBeerDto(beerRepository.findByUpc(upc));
+        BeerDto aBeerDro = beerMapper.beerToBeerDto(beerRepository.findByUpc(upc));
+
+        return aBeerDro;
     }
 
 
