@@ -62,8 +62,8 @@ public class BeerController {
 
     @GetMapping(produces = {"application/json"}, path="beerUpc/{upc}")
     public ResponseEntity<BeerDto> getBeerByUpc(@PathVariable String upc) {
-
-        return new ResponseEntity<>(beerService.getByUpc(upc), HttpStatus.OK);
+        BeerDto beerDto = beerService.getByUpc(upc);
+        return new ResponseEntity<>(beerDto, HttpStatus.OK);
 
     }
 
